@@ -1,9 +1,5 @@
-
 import { Permissions, Notifications } from 'expo'
-
-import { getStorage, setStorage } from './storage'
-
-
+import { getStorage, setStorage } from './api'
 
 export const askPermissionNotification = async () => {
     const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
@@ -13,7 +9,7 @@ export const askPermissionNotification = async () => {
 export const setLocalNotifiation = async () => {
   const status = await askPermissionNotification()
   if (status !== "granted") {
-    console.warn('No permission to use notifications',status)
+    console.warn('Sem permissões para usar as notificações',status)
     return
   }
 
@@ -49,12 +45,7 @@ export const saveDeck = async (deck) =>{
 }
 
 export const startStorage = async () => {
-  
-  /* const decks = defaultDecks() */
   const INITICAL_STATE = {}
-  /* decks.map(deck =>{
-    INITICAL_STATE[deck.name] = deck
-  }) */
   await setStorage(INITICAL_STATE)
 }
 
@@ -65,12 +56,3 @@ export const isStorageNotNull = async () => {
   return storage !== null
 }
 
-const defaultDecks = () => {
-    return [
-      {name: 'Redux', questions: []},
-      {name: 'React', questions: []},
-      {name: 'React Native', questions: []},
-      {name: 'Udacity', questions: []},
-      
-    ]
-  }

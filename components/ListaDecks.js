@@ -6,7 +6,7 @@ import  { isStorageNotNull, startStorage, fetchDecks } from '../utils/helper'
 import { getDecks } from '../actions'
 import * as colors from '../utils/colors'
 
-class Decks extends Component{
+class ListaDecks extends Component{
     async componentDidMount(){
         const { dispatch } = this.props
         if(!await isStorageNotNull()){
@@ -109,4 +109,4 @@ function mapStateToProps(decks){
     }
 }
 
-export default connect(mapStateToProps)(Decks)
+export default connect(mapStateToProps)(ListaDecks)

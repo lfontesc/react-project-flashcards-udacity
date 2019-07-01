@@ -6,7 +6,7 @@ import  { saveDeck } from '../utils/helper'
 import { setDeck } from '../actions'
 import * as colors from '../utils/colors'
 
-class NewCard extends Component {
+class NovoCartao extends Component {
     state = {
         question: '',
         awers: ''
@@ -16,7 +16,7 @@ class NewCard extends Component {
         const { deck } = navigation.state.params
 
         return {
-            title: `Card to deck ${deck.name}`
+            title: `Cartão do Deck ${deck.name}`
         }
     }
 
@@ -122,4 +122,4 @@ function mapStateToProps (state,{navigation}) {
     return { deck }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(NewCard)
+export default connect(mapStateToProps,mapDispatchToProps)(NovoCartao)

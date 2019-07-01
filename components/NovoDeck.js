@@ -7,7 +7,7 @@ import * as colors from '../utils/colors'
 import  { saveDeck } from '../utils/helper'
 import { setDeck } from '../actions'
 
-class NewDecks extends Component {
+class NovoDeck extends Component {
     state = {
         deck: {
             name:'',
@@ -25,7 +25,7 @@ class NewDecks extends Component {
         const deck = this.state.deck
         if(_.isEmpty(deck.name))
         {
-            alert("Name is requered")
+            alert("Name é requerido.")
             return
         }
 
@@ -129,5 +129,5 @@ function mapDispatchToProps (dispatch, { navigation }) {
     }
 }
 
-export default connect(null,mapDispatchToProps)(NewDecks)
+export default connect(null,mapDispatchToProps)(NovoDeck)
 

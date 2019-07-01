@@ -3,9 +3,9 @@ import { Constants, Permissions } from 'expo'
 import { Provider } from 'react-redux'
 import { StatusBar, View } from 'react-native';
 
-import MainNavigation from './utils/mainNavigation'
+import MainNavigation from './utils/Navigation'
 import { askPermissionNotification, setLocalNotifiation } from './utils/helper'
-import store from './utils/store'
+import store from './utils/storeRedux'
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -26,7 +26,7 @@ export default class App extends React.Component {
       status = await askPermissionNotification()
       if( status === 'denied')
       {
-        alert('You denied receiving notifications for this app.')
+        alert('Você negou as permissões para receber notificações em seu app.')
       }
       else if(status === 'granted'){
         await setLocalNotifiation()

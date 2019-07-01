@@ -1,21 +1,25 @@
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 import { Platform } from 'react-native';
-import Decks from '../components/Decks'
-import NewDeck from '../components/NewDeck'
+
+//components
+import ListaDecks from '../components/ListaDecks'
+import NovoDeck from '../components/NovoDeck'
 import Deck from '../components/Deck'
-import NewCard from '../components/NewCard'
+import NovoCartao from '../components/NovoCartao'
 import Quiz from '../components/Quiz'
-import * as colors from '../utils/colors'
+
+//utils
+import * as colors from './colors'
 
 const Tabs = createMaterialTopTabNavigator({
     Decks:{
-      screen: Decks,
+      screen: ListaDecks,
       navigationOptions: {
         tabBarLabel: 'Decks',
       },
     },
     NewDeck:{
-      screen: NewDeck,
+      screen: NovoDeck,
       navigationOptions: {
         tabBarLabel: 'Novo Deck',
       },
@@ -58,7 +62,7 @@ const Tabs = createMaterialTopTabNavigator({
       }),
     },
     NewCard:{
-      screen:NewCard,
+      screen:NovoCartao,
       navigationOptions:({navigation})=>({
         headerTintColor:colors.white,
         headerStyle:{
